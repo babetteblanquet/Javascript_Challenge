@@ -1,13 +1,20 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
+// Creating a variable to get a reference to the table body
+var tbody = d3.select("tbody");
 
+// Console.log the ufo data from data.js
+console.log(tableData);
 
-
-
-
-
+//Appending the table with each ufo data with Arrow Functions
+tableData.forEach((ufoData) => {
+    var row = tbody.append("tr");
+    Object.entries(ufoData).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
 
 //Filtering the data with date
 //Select the button
@@ -38,3 +45,4 @@ function runEnter() {
   var filteredData = tableData.filter(ufo => ufo.datetime === inputValue);
 
   console.log(filteredData);
+};
