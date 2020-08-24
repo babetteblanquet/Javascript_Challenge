@@ -48,7 +48,18 @@ function runEnter() {
 
   //Filter the tableData based on the input Value
   var filteredData = tableData.filter(ufo => ufo.datetime === inputValue);
-  
+
   //Console log the filteredData
   console.log(filteredData);
+
+  //// Display the filtered data in the table - appending with arrow functions
+filteredData.forEach((ufoData) => {
+    var row = tbody.append("tr");
+    Object.entries(ufoData).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
 };
+
+ 
