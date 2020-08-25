@@ -22,7 +22,7 @@ tableData.forEach((ufoData) => {
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("form");
+var form = d3.select(".form-control");
 
 // Create event handlers 
 button.on("click", runEnter);
@@ -45,11 +45,36 @@ function runEnter() {
   var inputShape = d3.select("#shape.form-control");
 
   // Get the value property of the input elements
-  var inputValueDate = inputDate.property("value");
-  var inputValueCity = inputCity.property("value");
-  var inputValueState = inputState.property("value");
-  var inputValueCountry = inputCountry.property("value");
-  var inputValueShape = inputShape.property("value");
+  if (inputDate != "") {
+    var inputValueDate = inputDate.property("value");
+  }
+  else {
+   var inputValueDate = tableData.datetime
+  }
+  if (inputCity != "") {
+    var inputValueCity = inputCity.property("value");
+  }
+  else {
+    var inputValueCity = tableData.city
+   }
+  if (inputState != "") {
+    var inputValueState = inputState.property("value");
+  }
+  else {
+    var inputValueState = tableData.state
+   }
+  if (inputCountry != "") {
+    var inputValueCountry = inputCountry.property("value");  
+  }
+  else {
+    var inputValueCountry = tableData.country
+   }
+  if (inputShape != "") {
+    var inputValueShape = inputShape.property("value");
+  }
+  else {
+    var inputValueShape = tableData.shape
+   }
 
   // Console log the input values and the tableData
   console.log(inputValueDate);
@@ -71,7 +96,7 @@ function runEnter() {
   console.log(filteredData);
 
   //// Display the filtered data in the table - appending with arrow functions
-filteredData.forEach((ufoData) => {
+  filteredData.forEach((ufoData) => {
     var row = tbody.append("tr");
     Object.entries(ufoData).forEach(([key, value]) => {
       var cell = row.append("td");
