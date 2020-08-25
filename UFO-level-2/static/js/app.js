@@ -22,7 +22,7 @@ tableData.forEach((ufoData) => {
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select(".form-control");
+var form = d3.select("form");
 
 // Create event handlers 
 button.on("click", runEnter);
@@ -45,37 +45,12 @@ function runEnter() {
   var inputShape = d3.select("#shape.form-control");
 
   // Get the value property of the input elements
-  if (inputDate != "") {
-    var inputValueDate = inputDate.property("value");
-  }
-  else {
-   var inputValueDate = tableData.datetime
-  }
-  if (inputCity != "") {
-    var inputValueCity = inputCity.property("value");
-  }
-  else {
-    var inputValueCity = tableData.city
-   }
-  if (inputState != "") {
-    var inputValueState = inputState.property("value");
-  }
-  else {
-    var inputValueState = tableData.state
-   }
-  if (inputCountry != "") {
-    var inputValueCountry = inputCountry.property("value");  
-  }
-  else {
-    var inputValueCountry = tableData.country
-   }
-  if (inputShape != "") {
-    var inputValueShape = inputShape.property("value");
-  }
-  else {
-    var inputValueShape = tableData.shape
-   }
-
+      var inputValueDate = inputDate.property("value");
+      var inputValueCity = inputCity.property("value");
+      var inputValueState = inputState.property("value");
+      var inputValueCountry = inputCountry.property("value");  
+      var inputValueShape = inputShape.property("value");
+  
   // Console log the input values and the tableData
   console.log(inputValueDate);
   console.log(inputValueCity);
@@ -85,12 +60,31 @@ function runEnter() {
   console.log(tableData);
 
   //Filter the tableData based on all the input Values
+
+  // var values = [inputValueDate, inputValueCity, inputValueState, inputValueCountry, inputValueShape]
+
+  // values.forEach((value) => {
+
+  //   if (value != "") {
+  //     var filteredData = tableData.filter(ufo => 
+  //       ufo.datetime === inputValueDate && 
+  //       ufo.city === inputValueCity &&
+  //       ufo.state === inputValueState &&
+  //       ufo.country === inputValueCountry &&
+  //       ufo.shape === inputValueShape);
+  //   }
+  //   else {
+    var filteredData = tableData.filter(ufo => 
+      ufo.datetime === tableData.datetime && 
+      ufo.city === tableData.city &&
+      ufo.state === tableData.state &&
+      ufo.country === tableData.country &&
+      ufo.shape === tableData.shape);
+  //   }
+  // });
+
   
-  var filteredData = tableData.filter(ufo => ufo.datetime === inputValueDate && 
-                                              ufo.city === inputValueCity &&
-                                              ufo.state === inputValueState &&
-                                              ufo.country === inputValueCountry &&
-                                              ufo.shape === inputValueShape);
+  
 
   //Console log the filteredData
   console.log(filteredData);
