@@ -66,20 +66,20 @@ function runEnter() {
   // values.forEach((value) => {
 
   //   if (value != "") {
-  //     var filteredData = tableData.filter(ufo => 
-  //       ufo.datetime === inputValueDate && 
-  //       ufo.city === inputValueCity &&
-  //       ufo.state === inputValueState &&
-  //       ufo.country === inputValueCountry &&
-  //       ufo.shape === inputValueShape);
+      var filteredData = tableData.filter(ufo => 
+        ufo.datetime === inputValueDate && 
+        ufo.city === inputValueCity &&
+        ufo.state === inputValueState &&
+        ufo.country === inputValueCountry &&
+        ufo.shape === inputValueShape);
   //   }
   //   else {
-    var filteredData = tableData.filter(ufo => 
-      ufo.datetime === tableData.datetime && 
-      ufo.city === tableData.city &&
-      ufo.state === tableData.state &&
-      ufo.country === tableData.country &&
-      ufo.shape === tableData.shape);
+    // var filteredData = tableData.filter(ufo => 
+    //   ufo.datetime === tableData.datetime && 
+    //   ufo.city === tableData.city &&
+    //   ufo.state === tableData.state &&
+    //   ufo.country === tableData.country &&
+    //   ufo.shape === tableData.shape);
   //   }
   // });
 
