@@ -45,11 +45,11 @@ function runEnter() {
   var inputShape = d3.select("#shape.form-control");
 
   // Get the value property of the input elements
-      var inputValueDate = inputDate.property("value");
-      var inputValueCity = inputCity.property("value");
-      var inputValueState = inputState.property("value");
-      var inputValueCountry = inputCountry.property("value");  
-      var inputValueShape = inputShape.property("value");
+  var inputValueDate = inputDate.property("value");
+  var inputValueCity = inputCity.property("value");
+  var inputValueState = inputState.property("value");
+  var inputValueCountry = inputCountry.property("value");  
+  var inputValueShape = inputShape.property("value");
   
   // Console log the input values and the tableData
   console.log(inputValueDate);
@@ -61,30 +61,12 @@ function runEnter() {
 
   //Filter the tableData based on all the input Values
 
-  // var values = [inputValueDate, inputValueCity, inputValueState, inputValueCountry, inputValueShape]
-
-  // values.forEach((value) => {
-
-  //   if (value != "") {
-      var filteredData = tableData.filter(ufo => 
-        ufo.datetime === inputValueDate && 
-        ufo.city === inputValueCity &&
-        ufo.state === inputValueState &&
-        ufo.country === inputValueCountry &&
-        ufo.shape === inputValueShape);
-  //   }
-  //   else {
-    // var filteredData = tableData.filter(ufo => 
-    //   ufo.datetime === tableData.datetime && 
-    //   ufo.city === tableData.city &&
-    //   ufo.state === tableData.state &&
-    //   ufo.country === tableData.country &&
-    //   ufo.shape === tableData.shape);
-  //   }
-  // });
-
-  
-  
+  var filteredData = tableData.filter(ufo => 
+    ufo.datetime === inputValueDate && 
+    ufo.city === inputValueCity &&
+    ufo.state === inputValueState &&
+    ufo.country === inputValueCountry &&
+    ufo.shape === inputValueShape);
 
   //Console log the filteredData
   console.log(filteredData);
